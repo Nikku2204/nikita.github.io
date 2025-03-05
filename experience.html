@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikita Kumari - Work Experience</title>
+    <style>
+        /* Color scheme and basic styling */
+        :root {
+            --primary: #6a5acd;
+            --secondary: #4b0082;
+            --light: #f5f5f5;
+            --dark: #333;
+            --accent: #9370db;
+            --gradient-start: #734ae8;
+            --gradient-end: #4b0082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 70px; /* Add padding to account for fixed navbar */
+        }
+
+        /* Navigation styling */
+        nav {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Main content styling */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* New simplified timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -12px;
+            top: 2rem;
+        }
+
+        .timeline-item h3 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-list {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .experience-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .experience-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Additional experiences section */
+        .additional-experience {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .additional-experience h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .experience-card {
+            background: #f8f8ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .experience-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .experience-card .date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Back button */
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .back-button a:hover {
+            background-color: var(--secondary);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+        }
+
+        .back-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation for items */
+        .animated-item {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Nikita Kumari</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="content.html">Projects</a>
+                <a href="experience.html">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Professional Experience</h1>
+
+        <p class="intro-text">Over the past seven years at Sprinklr, I've progressed from Product Support Engineer to Manager, leading teams, optimizing processes, and delivering exceptional customer experiences in the B2B SaaS space.</p>
+
+        <!-- Work Experience Timeline -->
+        <section class="timeline">
+            <!-- Manager Role -->
+            <div class="timeline-item animated-item">
+                <div class="timeline-marker"></div>
+                <h3>Manager, Product Support</h3>
+                <h4>Sprinklr</h4>
+                <span class="timeline-date">Aug 2022 - May 2023</span>
+                <ul class="experience-list">
+                    <li><strong>Customer Focused:</strong> Analyzed customer ticket trends and created automation to enhance team efficiency and reduce response times by 30%</li>
+                    <li><strong>IT Leadership:</strong> Led a 22-member team, optimizing workflows and enhancing customer experience, resulting in a 25% increase in CSAT scores</li>
+                    <li><strong>Product Engineering Collaboration:</strong> Partnered with engineering teams to enhance internal tools, improving ticket resolution and system uptime</li>
+                    <li><strong>KPI Management:</strong> Established tracking mechanisms, reducing peak wait times by 20% and optimizing resource allocation</li>
+                </ul>
+            </div>
+
+            <!-- Team Lead Role -->
+            <div class="timeline-item animated-item">
+                <div class="timeline-marker"></div>
+                <h3>Team Lead, Product Support</h3>
+                <h4>Sprinklr</h4>
+                <span class="timeline-date">May 2021 - Aug 2022</span>
+                <ul class="experience-list">
+                    <li><strong>Lean Process:</strong> Spearheaded process automation initiatives and data analysis, reducing resolution times by 25%</li>
+                    <li><strong>Problem Solving:</strong> Improved problem-solving efficiency by 20% through targeted performance incentives and refining data-driven decision-making</li>
+                    <li><strong>Mentorship & Training:</strong> Designed structured programs, mentoring and motivating the team to increase productivity and customer satisfaction by 20%</li>
+                    <li><strong>Risk Management:</strong> Conducted root cause analysis, led incident response, and provided executive support to improve issue resolution and service quality</li>
+                </ul>
+            </div>
+
+            <!-- TAM Role -->
+            <div class="timeline-item animated-item">
+                <div class="timeline-marker"></div>
+                <h3>Technical Account Manager</h3>
+                <h4>Sprinklr</h4>
+                <span class="timeline-date">May 2018 - May 2021</span>
+                <ul class="experience-list">
+                    <li><strong>Stakeholder Management:</strong> Built trustworthy client relationships, ensuring 98% SLA compliance through active communication and presentations to key stakeholders</li>
+                    <li><strong>Product Quality:</strong> Worked with product and engineering teams to improve self-service tools, simplifying onboarding and cutting initial support tickets by 50%</li>
+                    <li><strong>Negotiation:</strong> Led contract negotiations to align client expectations with business capabilities, ensuring mutual success</li>
+                </ul>
+            </div>
+
+            <!-- Senior PSE Role -->
+            <div class="timeline-item animated-item">
+                <div class="timeline-marker"></div>
+                <h3>Senior Product Support Engineer</h3>
+                <h4>Sprinklr</h4>
+                <span class="timeline-date">June 2018 - September 2018</span>
+                <ul class="experience-list">
+                    <li>Provided advanced technical support for complex customer issues, ensuring timely resolution</li>
+                    <li>Collaborated with development teams to troubleshoot and resolve critical platform issues</li>
+                    <li>Mentored junior team members on technical capabilities and customer service best practices</li>
+                </ul>
+            </div>
+
+            <!-- PSE Role -->
+            <div class="timeline-item animated-item">
+                <div class="timeline-marker"></div>
+                <h3>Product Support Engineer</h3>
+                <h4>Sprinklr</h4>
+                <span class="timeline-date">July 2016 - June 2018</span>
+                <ul class="experience-list">
+                    <li>Specialized in troubleshooting platform issues raised by clients, ensuring timely resolution</li>
+                    <li>Diagnosed and resolved complex technical issues across Sprinklr's customer experience management platform</li>
+                    <li>Documented and escalated software bugs to engineering teams, serving as a critical link between customers and development</li>
+                    <li>Contributed to knowledge base development to improve self-service capabilities and reduce recurring issues</li>
+                    <li>Built strong client relationships through effective technical communication and problem-solving</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Key Accomplishments Section -->
+        <section class="additional-experience animated-item">
+            <h2>Key Professional Accomplishments</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Customer Success Transformation</h3>
+                    <ul class="experience-list">
+                        <li>Led initiative that increased CSAT scores by 25% through workflow optimization and team training</li>
+                        <li>Implemented metrics tracking that reduced customer wait times by 20% during peak periods</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Process Automation</h3>
+                    <ul class="experience-list">
+                        <li>Designed automated workflows that reduced ticket resolution times by 25%</li>
+                        <li>Created self-service tools that decreased initial support tickets by 50%</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Team Leadership</h3>
+                    <ul class="experience-list">
+                        <li>Successfully managed a 22-member cross-functional support team</li>
+                        <li>Designed mentorship programs that boosted team productivity by 20%</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Stakeholder Management</h3>
+                    <ul class="experience-list">
+                        <li>Maintained 98% SLA compliance through effective client communication</li>
+                        <li>Successfully negotiated contracts to align client expectations with business capabili
