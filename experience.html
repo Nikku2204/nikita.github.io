@@ -96,6 +96,88 @@
             line-height: 1.8;
         }
 
+        /* Multi-image carousel styling */
+        .gallery-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 300px;
+        }
+
+        .gallery-item {
+            flex: 0 0 33.333%; /* Show 3 images at once */
+            height: 100%;
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        .gallery-btn {
+            background-color: rgba(255,255,255,0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-btn:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        /* Page dots */
+        .gallery-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+        .gallery-dot.active {
+            background-color: white;
+        }
+
         /* New simplified timeline styling */
         .timeline {
             position: relative;
@@ -262,6 +344,19 @@
             height: 16px;
         }
 
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 0 0 50%; /* Show 2 images on medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                flex: 0 0 100%; /* Show 1 image on small screens */
+            }
+        }
+
         /* Footer styling */
         footer {
             background-color: var(--dark);
@@ -316,6 +411,51 @@
 
     <main>
         <h1 class="page-title">Professional Experience</h1>
+
+        <!-- Multi-image gallery/carousel section -->
+        <div class="gallery-container animated-item">
+            <div class="gallery-wrapper">
+                <!-- First set of 3 images -->
+                <div class="gallery-item">
+                    <img src="pic1.jpg" alt="Professional Experience 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic2.jpg" alt="Professional Experience 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic3.jpg" alt="Professional Experience 3">
+                </div>
+                <!-- Second set of 3 images -->
+                <div class="gallery-item">
+                    <img src="pic4.jpg" alt="Professional Experience 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic5.jpg" alt="Professional Experience 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic6.jpg" alt="Professional Experience 6">
+                </div>
+                <!-- Third set of 3 images -->
+                <div class="gallery-item">
+                    <img src="pic7.jpg" alt="Professional Experience 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic8.jpg" alt="Professional Experience 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="pic9.jpg" alt="Professional Experience 9">
+                </div>
+            </div>
+            <div class="gallery-controls">
+                <button class="gallery-btn prev">←</button>
+                <div class="gallery-dots">
+                    <div class="gallery-dot active" data-index="0"></div>
+                    <div class="gallery-dot" data-index="1"></div>
+                    <div class="gallery-dot" data-index="2"></div>
+                </div>
+                <button class="gallery-btn next">→</button>
+            </div>
+        </div>
 
         <p class="intro-text">Over the past seven years at Sprinklr, I've progressed from Product Support Engineer to Manager, leading teams, optimizing processes, and delivering exceptional customer experiences in the B2B SaaS space.</p>
 
@@ -423,4 +563,118 @@
                     <h3>Stakeholder Management</h3>
                     <ul class="experience-list">
                         <li>Maintained 98% SLA compliance through effective client communication</li>
-                        <li>Successfully negotiated contracts to align client expectations with business capabili
+                        <li>Successfully negotiated contracts to align client expectations with business capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-button">
+            <a href="index.html">
+                <span class="back-icon">←</span> Back to Home
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:nikitakumari.199322@gmail.com">nikitakumari.199322@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/nikitakumari22/" target="_blank">linkedin.com/in/nikitakumari22</a></p>
+            <p>Seattle, WA, USA</p>
+        </div>
+        <p>&copy; 2025 Nikita Kumari. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Multi-image gallery JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryWrapper = document.querySelector('.gallery-wrapper');
+        const prevBtn = document.querySelector('.gallery-btn.prev');
+        const nextBtn = document.querySelector('.gallery-btn.next');
+        const dots = document.querySelectorAll('.gallery-dot');
+        const itemWidth = 33.333; // Width of each item as percentage
+        const totalItems = document.querySelectorAll('.gallery-item').length;
+        const itemsPerPage = 3; // Number of items visible at once
+        const maxPages = Math.ceil(totalItems / itemsPerPage);
+        
+        let currentPage = 0;
+        let isTransitioning = false;
+        
+        // Initialize
+        updateGallery();
+        startAutoSlide();
+        
+        // Set up button click events
+        prevBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            currentPage = (currentPage - 1 + maxPages) % maxPages;
+            updateGallery();
+            resetAutoSlide();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            currentPage = (currentPage + 1) % maxPages;
+            updateGallery();
+            resetAutoSlide();
+        });
+        
+        // Set up dot click events
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                if (isTransitioning) return;
+                currentPage = index;
+                updateGallery();
+                resetAutoSlide();
+            });
+        });
+        
+        // Update gallery position and dots
+        function updateGallery() {
+            isTransitioning = true;
+            
+            // Update transform property to slide to the current page
+            const translateX = -currentPage * (itemsPerPage * itemWidth);
+            galleryWrapper.style.transform = `translateX(${translateX}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPage);
+            });
+            
+            // Reset transitioning flag after animation completes
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }
+        
+        // Auto-slide functionality
+        let autoSlideInterval;
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                if (!isTransitioning) {
+                    currentPage = (currentPage + 1) % maxPages;
+                    updateGallery();
+                }
+            }, 4000);
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Pause auto-sliding when hovering over the gallery
+        const galleryContainer = document.querySelector('.gallery-container');
+        galleryContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        
+        galleryContainer.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+    });
+    </script>
+</body>
+</html>

@@ -282,13 +282,61 @@
 
     <main>
         <h1 class="page-title">Project Portfolio</h1>
-
         <!-- Projects Section -->
         <section id="projects" class="project-section">
+           <!-- Project 4: ResQ.AI -->
+            <div class="project-card animated-card">
+                <div class="project-video-container">
+                    <video class="project-video" autoplay muted loop playsinline>
+                        <source src="resq.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">ResQ.AI — AI-Powered Personal Safety Platform</h2>
+                    <p class="project-date">March 2025 — Present</p>
+
+                    <h3 class="project-section-heading">Challenge</h3>
+                    <div class="project-description">
+                        <p>Existing safety applications primarily focus on reactive emergency responses and often operate in silos (location safety, profile verification, emergency protocols). ResQ.AI addresses the need for a unified, proactive, and privacy-conscious personal safety solution for users navigating both physical and digital spaces.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Goal</h3>
+                    <div class="project-description">
+                        <p>To develop an AI-driven personal safety platform integrating location intelligence, profile verification, and discreet emergency response, enabling users to proactively assess and mitigate risks before they arise.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Approach & Implementation</h3>
+                    <div class="project-highlights">
+                        <ul>
+                            <li><strong>Advanced Profile Verification:</strong> Combines Google Cloud Vision API, DeepFace, Scrapingdog (Google Lens API), and GPT-4 Turbo to verify user profiles, detect potential impersonations, and assess online risks.</li>
+                            <li><strong>Location Safety Intelligence:</strong> Leverages geospatial crime data, heatmaps (Leaflet.js), AI-driven safety scores, and contextual recommendations based on time and location.</li>
+                            <li><strong>Smart Emergency Response (Hydrate Feature):</strong> Disguised as a hydration reminder, allows discreet check-ins or triggers an emergency protocol without raising suspicion.</li>
+                            <li><strong>Data Pipeline:</strong> Processes public crime data, fugitive databases (FBI & Interpol), and user-generated content with secure, privacy-focused handling.</li>
+                            <li><strong>AI-Powered Insights:</strong> Generates contextual, personalized safety recommendations using GPT-4 Turbo for both location and profile evaluations.</li>
+                            <li><strong>Fully Integrated Web Prototype:</strong> Built with Flask, OpenCV, Leaflet.js, REST APIs, and concurrent processing for real-time performance.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="project-section-heading">Results & Impact</h3>
+                    <div class="project-results">
+                        <ul>
+                            <li>Successfully demonstrated multi-layered personal safety functionalities in internal testing.</li>
+                            <li>Reduced false positives in profile verification by integrating cross-platform verification (Face Matching + Reverse Image Search + AI Risk Assessment).</li>
+                            <li>Enabled users to proactively assess location risks with an interactive, AI-powered heatmap and dynamic safety scores.</li>
+                            <li>Provided a discreet and effective emergency response system for sensitive real-life scenarios (e.g., dating safety).</li>
+                        </ul>
+                    </div>
+                    <div class="project-link" style="margin-top: 0.5rem;">
+                        <a href="https://drive.google.com/file/d/15RUHfTSVZrRs1JYgh7Nm9OJ-t2f-JxAF/view" target="_blank">Watch Demo Video</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Project 1 -->
             <div class="project-card animated-card">
                 <div class="project-video-container">
-                    <video class="project-video" controls>
+                    <video class="project-video" autoplay muted loop playsinline>
                         <source src="cmms-demo.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -337,7 +385,7 @@
             <!-- Project 2 -->
             <div class="project-card animated-card">
                 <div class="project-video-container">
-                    <video class="project-video" controls>
+                    <video class="project-video" autoplay muted loop playsinline>
                         <source src="guardian-ai-demo.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -388,7 +436,7 @@
             <!-- Project 3 -->
             <div class="project-card animated-card">
                 <div class="project-video-container">
-                    <video class="project-video" controls>
+                    <video class="project-video" autoplay muted loop playsinline>
                         <source src="closet-companion-demo.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -431,6 +479,93 @@
                     </div>
                 </div>
             </div>
+            <!-- Project: Clustering Transactions for Fraud Detection -->
+            <div class="project-card animated-card">
+                <div class="project-video-container">
+                    <img src="clustering.jpg" alt="Clustering Transactions for Fraud Detection" class="project-video" style="object-fit: cover;">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Clustering Transactions for Fraud Detection</h2>
+                    <p class="project-date">November 2024</p>
+
+                    <h3 class="project-section-heading">Challenge</h3>
+                    <div class="project-description">
+                        <p>Fraudulent transactions are often subtle, hidden among millions of normal transactions, and challenging to detect without labeled data. Traditional supervised learning requires labeled fraud data, which is limited or unavailable in many real-world scenarios.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Goal</h3>
+                    <div class="project-description">
+                        <p>Apply unsupervised clustering techniques to detect anomalies and suspicious transaction patterns without relying on pre-labeled datasets.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Approach & Implementation</h3>
+                    <div class="project-highlights">
+                        <ul>
+                            <li><strong>Feature Engineering:</strong> Performed feature scaling, dimensionality reduction (PCA), and data preprocessing on transactional data.</li>
+                            <li><strong>Clustering Techniques:</strong> Implemented and compared K-Means, DBSCAN, and Hierarchical Clustering to detect potential fraud clusters.</li>
+                            <li><strong>Visualization:</strong> Visualized clusters using t-SNE and scatter plots to interpret anomalies.</li>
+                            <li><strong>Evaluation:</strong> Analyzed silhouette scores, inertia, and anomaly ratios to assess the effectiveness of different clustering methods.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="project-section-heading">Results & Insights</h3>
+                    <div class="project-results">
+                        <ul>
+                            <li>DBSCAN proved effective in identifying anomalous transactions without prior labels.</li>
+                            <li>t-SNE visualization revealed distinct clusters, enabling easier human interpretation of fraud patterns.</li>
+                            <li>Developed a reproducible workflow for unsupervised fraud detection applicable to real-world financial datasets.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-link">
+                        <a href="https://www.kaggle.com/code/nikitakumari22/clustering-transactions-for-fraud-detection" target="_blank">View Notebook on Kaggle</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project: Click Bait — Predicting Who Clicks on Ads -->
+            <div class="project-card animated-card">
+                <div class="project-video-container">
+                    <img src="click.jpg" alt="Click Bait — Predicting Who Clicks on Ads" class="project-video" style="object-fit: cover;">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Click Bait — Predicting Who Clicks on Ads</h2>
+                    <p class="project-date">September 2024</p>
+
+                    <h3 class="project-section-heading">Challenge</h3>
+                    <div class="project-description">
+                        <p>Online advertising faces significant inefficiencies due to poor targeting, leading to low click-through rates and wasted ad spend. Predicting user behavior is crucial for optimizing ad campaigns.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Goal</h3>
+                    <div class="project-description">
+                        <p>Build a predictive model that accurately classifies users who are likely to click on advertisements based on behavioral and demographic features.</p>
+                    </div>
+
+                    <h3 class="project-section-heading">Approach & Implementation</h3>
+                    <div class="project-highlights">
+                        <ul>
+                            <li><strong>Data Preprocessing:</strong> Cleaned and prepared user activity, demographic, and ad interaction data.</li>
+                            <li><strong>Model Development:</strong> Trained an XGBoost Classifier to predict click behavior.</li>
+                            <li><strong>Hyperparameter Tuning:</strong> Optimized the model using Grid Search and Cross-Validation to maximize performance.</li>
+                            <li><strong>Model Evaluation:</strong> Measured performance using accuracy, precision, recall, and ROC-AUC metrics.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="project-section-heading">Results & Insights</h3>
+                    <div class="project-results">
+                        <ul>
+                            <li>Achieved high predictive accuracy on unseen data.</li>
+                            <li>Provided actionable insights into factors influencing click behavior (age, time spent online, daily internet usage).</li>
+                            <li>Built a scalable baseline model for potential integration into digital marketing pipelines.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-link">
+                        <a href="https://www.kaggle.com/code/nikitakumari22/click-bait-predicting-who-clicks-on-ads" target="_blank">View Notebook on Kaggle</a>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <div class="back-button">
